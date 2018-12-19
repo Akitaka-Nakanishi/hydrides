@@ -5,7 +5,7 @@ A.Make Tc csv files
     chemical formula -> parameters(atomic No. & number of atoms)
     ex) S2H5  -> 16.0, 1.0, 2.0, 5.0
 2.make tc_pred.csv
-   all A_n H_m (n,m=1,...,10)
+   all X_n H_m (n, m=1,...,10): X = He~At (without rare gas)
 
 B.Hydride Tc Regression
 1.Regression
@@ -31,7 +31,7 @@ tc_data.csv:
 
 tc_pred.csv:
     Tc, atomic number 1&2, the number of atoms 1&2, pressure 
-    of XnHm (n,m=1,...,10): X=He~At (without rare gas)
+    of X_n H_m (n, m=1,...,10): X = He~At (without rare gas)
 
 Outnput file
 ------------
@@ -226,7 +226,7 @@ atom2 = periodic_table.get_el_sp(zatom2)
 for zatom1 in range(3,86):
     atom1 = periodic_table.get_el_sp(zatom1)
     if(not atom1.is_noble_gas):
-        for natom1 in range(1,2):
+        for natom1 in range(1,11):
             for natom2 in range(1,11):
                 for ip in range(50,550,50):
                     str_mat=str(atom1)+str(natom1)+str(atom2)+str(natom2)
